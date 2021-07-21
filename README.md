@@ -26,3 +26,4 @@ this packages have :
         - name: selenium/standalone-chrome:latest
 
 
+this image replace before_script section with many operation for initialise test software !

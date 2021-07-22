@@ -37,7 +37,7 @@ RUN apt-get -qq install -y xvfb \
 #RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 RUN apt-get update
-RUN apt-get install google-chrome-stable
+RUN apt-get install -y google-chrome-stable
 
 RUN Xvfb :99 -ac -screen 0 1280x1024x24 &
 RUN export DISPLAY=:99

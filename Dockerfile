@@ -23,8 +23,7 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/
 
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - >/dev/null
 
-RUN apt-get -qq install -y google-chrome-stable \
-  xvfb \
+RUN apt-get -qq install -y xvfb \
   gtk2-engines-pixbuf \ 
   xfonts-cyrillic \ 
   xfonts-100dpi \
@@ -34,6 +33,11 @@ RUN apt-get -qq install -y google-chrome-stable \
   imagemagick \
   x11-apps \
   default-jre
+
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+RUN apt-get update
+RUN apt-get install google-chrome-stable
 
 RUN Xvfb :99 -ac -screen 0 1280x1024x24 &
 RUN export DISPLAY=:99

@@ -1,7 +1,7 @@
 FROM debian:latest
 
-RUN deb  http://deb.debian.org/debian  stretch main
-RUN deb-src  http://deb.debian.org/debian  stretch main
+#RUN deb  http://deb.debian.org/debian  stretch main
+#RUN deb-src  http://deb.debian.org/debian  stretch main
 
 RUN apt update 
 
